@@ -1,0 +1,40 @@
+name: the_fuel_ward
+main: the_fuel_ward\Main
+version: "1.0"
+api: [3.0.0, 4.0.0]
+author: "suinua"
+
+commands:
+  create:
+    usage: "/create"
+    description: "create game"
+  setting:
+    usage: "/setting"
+    description: "change game setting"
+  map:
+    usage: "/map"
+    description: "map"
+    permission: op
+  gamelist:
+    usage: "/gamelist"
+    description: "open game list"
+  room:
+    usage: "/room"
+    description: "open waiting room list"
+    permission: op
+  board:
+    usage: "/board"
+    description: "summon board"
+    permission: op
+  computer:
+    usage: "/computer"
+    description: "summon computer"
+    permission: op
+  removenpc:
+    usage: "/removenpc"
+    description: "get RemoveNpcItem"
+    permission: op
+  worldlist:
+    usage: "/worldlist"
+    description: "open WorldListForm"
+    permission: op

@@ -1,0 +1,52 @@
+{
+    "name": "mine_deep_rock/the_fuel_ward",
+    "authors": [
+        {
+            "name": "suinua"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": [
+                "src/"
+            ]
+        }
+    },
+
+    "repositories": [
+        {
+            "type": "git",
+            "name": "mine_deep_rock/form_builder",
+            "url": "https://github.com/MineDeepRock/form_builder"
+        },
+        {
+            "type": "git",
+            "name": "mine_deep_rock/bossbar_system",
+            "url": "https://github.com/MineDeepRock/bossbar_system"
+        },
+        {
+            "type": "git",
+            "name": "mine_deep_rock/scoreboard_builder",
+            "url": "https://github.com/MineDeepRock/scoreboard_builder"
+        },
+        {
+            "type": "git",
+            "name": "mine_deep_rock/slot_menu_system",
+            "url": "https://github.com/MineDeepRock/slot_menu_system"
+        },
+        {
+            "type": "git",
+            "name": "mine_deep_rock/slot_menu_system",
+            "url": "https://github.com/MineDeepRock/gun_system"
+        }
+    ],
+    "require": {
+        "pocketmine/pocketmine-mp": "*",
+        "ext-json": "*",
+        "mine_deep_rock/form_builder": "dev-master",
+        "mine_deep_rock/bossbar_system": "dev-master",
+        "mine_deep_rock/scoreboard_builder": "dev-master",
+        "mine_deep_rock/slot_menu_system": "dev-master",
+        "mine_deep_rock/gun_system": "dev-master"
+    }
+}
