@@ -19,7 +19,7 @@ class WaitingRoomStorage
 
     //TODO:注意
     static function loadAllWaitingRooms(): void {
-        $data = json_decode(file_get_contents(DataFolderPath::$waitingRoomListJson));
+        $data = json_decode(file_get_contents(DataFolderPath::$waitingRoomListJson), true);
         foreach ($data as $vectorAsJson) {
             self::$waitingRoomList[] = WaitingRoomDTO::decode($vectorAsJson);
         }
