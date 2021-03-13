@@ -15,7 +15,7 @@ class StartGameService
         if ($game === null) return false;
         if ($game->getGameOwnerName() !== $ownerName) return false;
 
-        $map = $map->getMap();
+        $map = $game->getMap();
         if (count($map->getFuelTankMapDataList()) > $game->getMaxPlayers()) return false;
 
         DivideIntoTeamsService::execute($gameId, $taskScheduler);
