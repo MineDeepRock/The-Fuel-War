@@ -6,9 +6,12 @@ namespace the_fuel_war\utilities;
 
 use bossbar_system\BossBar;
 use the_fuel_war\pmmp\BossBarTypeList;
+use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
 use the_fuel_war\pmmp\services\TransformToPlayerPMMPService;
 use pocketmine\scheduler\TaskScheduler;
 use pocketmine\Server;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
 
 class TransformTimer extends Timer
 {
@@ -28,6 +31,8 @@ class TransformTimer extends Timer
 
         $bossBar = new BossBar($player, BossBarTypeList::Transform(), "Transform", 1);
         $bossBar->send();
+
+        $this->updateScoreboard();
 
         parent::start();
     }
@@ -62,6 +67,7 @@ class TransformTimer extends Timer
 
         $bossBar = BossBar::findByType($player, BossBarTypeList::Transform());
         if ($bossBar !== null) $bossBar->remove();
+        $this->updateScoreboard();
     }
 
     /**
@@ -69,5 +75,22 @@ class TransformTimer extends Timer
      */
     public function isProgress(): bool {
         return $this->isProgress;
+    }
+
+    private function updateScoreboard() {
+        $playerStatus = PlayerStatusStorage::findByName($this->playerName);
+        if ($playerStatus === null) return;
+
+        $game = GameStorage::findById($playerStatus->getBelongGameId());
+        if ($game === null) return;
+
+        //スコアボード更新
+        $gamePlayers = [];
+        foreach ($game->getPlayerNameList() as $name) {
+            $gamePlayer = Server::getInstance()->getPlayer($name);
+            if ($gamePlayer === null) return;
+            $gamePlayers[] = $gamePlayer;
+        }
+        OnGameScoreboard::update($gamePlayers, $game);
     }
 }
