@@ -15,7 +15,6 @@ class Map
     private string $levelName;
     private string $name;
 
-    private Vector3 $startVector;
     private array $fuelTankMapDataList;
     private array $fuelSpawnVectors;
 
@@ -23,10 +22,9 @@ class Map
     private array $gunDataOnMapList;
     private array $bloodPackSpawnVectorList;
 
-    public function __construct(string $levelName, string $name, Vector3 $startVector, array $fuelTankMapDataList, array $fuelSpawnVectors, array $itemDataOnMapList, array $gunDataOnMapList, array $bloodPackSpawnVectorList) {
+    public function __construct(string $levelName, string $name,  array $fuelTankMapDataList, array $fuelSpawnVectors, array $itemDataOnMapList, array $gunDataOnMapList, array $bloodPackSpawnVectorList) {
         $this->levelName = $levelName;
         $this->name = $name;
-        $this->startVector = $startVector;
         $this->fuelTankMapDataList = $fuelTankMapDataList;
         $this->fuelSpawnVectors = $fuelSpawnVectors;
         $this->itemDataOnMapList = $itemDataOnMapList;
@@ -39,13 +37,6 @@ class Map
      */
     public function getName(): string {
         return $this->name;
-    }
-
-    /**
-     * @return Vector3
-     */
-    public function getStartVector(): Vector3 {
-        return $this->startVector;
     }
 
     /**

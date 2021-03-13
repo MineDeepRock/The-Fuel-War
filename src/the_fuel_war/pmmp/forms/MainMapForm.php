@@ -29,7 +29,6 @@ class MainMapForm extends SimpleForm
                 function (Player $player) use ($map) {
                     $level = Server::getInstance()->getLevelByName($map->getLevelName());
                     $player->teleport($level->getSpawnLocation());
-                    $player->teleport($map->getStartVector());
 
                     $player->sendForm(new MapSettingForm($map));
                 }

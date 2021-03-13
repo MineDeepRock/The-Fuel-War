@@ -58,7 +58,6 @@ class MapDAO
         $newMap = new Map(
             array_key_exists("level_name", $array) ? $array["level_name"] : $map->getLevelName(),
             array_key_exists("name", $array) ? $array["name"] : $map->getName(),
-            array_key_exists("start_vector", $array) ? $array["start_vector"] : $map->getStartVector(),
             array_key_exists("fuel_tanks", $array) ? $array["fuel_tanks"] : $map->getFuelTankMapDataList(),
             array_key_exists("fuel_spawn_vectors", $array) ? $array["fuel_spawn_vectors"] : $map->getFuelSpawnVectors(),
             array_key_exists("item_data_list", $array) ? $array["item_data_list"] : $map->getItemDataOnMapList(),

@@ -34,8 +34,7 @@ class CreateNewMapForm extends CustomForm
     function onSubmit(Player $player): void {
         $mapName = $this->inputNameElement->getResult();
         $levelName = $this->selectWorldElement->getResult();
-        $level = Server::getInstance()->getLevelByName($levelName);
-        $result = CreateNewMapService::execute($levelName, $mapName, $level->getSpawnLocation());
+        $result = CreateNewMapService::execute($levelName, $mapName);
 
         if ($result) {
             $level = Server::getInstance()->getLevelByName($levelName);

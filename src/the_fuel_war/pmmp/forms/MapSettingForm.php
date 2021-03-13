@@ -5,7 +5,6 @@ namespace the_fuel_war\pmmp\forms;
 
 
 use the_fuel_war\models\Map;
-use the_fuel_war\pmmp\slot_menus\InitialSpawnVectorSettingSlotMenu;
 use form_builder\models\simple_form_elements\SimpleFormButton;
 use form_builder\models\SimpleForm;
 use pocketmine\Player;
@@ -22,13 +21,6 @@ class MapSettingForm extends SimpleForm
                 null,
                 function (Player $player) use ($map) {
                     $player->sendForm(new RenameMapForm($map));
-                }
-            ),
-            new SimpleFormButton(
-                "初期位置の変更",
-                null,
-                function (Player $player) use ($map) {
-                    SlotMenuSystem::send($player, new InitialSpawnVectorSettingSlotMenu($map));
                 }
             ),
             new SimpleFormButton(

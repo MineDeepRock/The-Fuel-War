@@ -28,7 +28,7 @@ class CreateGameForm extends CustomForm
         }
 
         $this->mapNameElement = new Dropdown("マップ", $mapNames);
-        $this->maxPlayersElement = new Slider("最大プレイヤー数", 3, 10, 6);
+        $this->maxPlayersElement = new Slider("最大プレイヤー数", 2, 10, 8);
 
         parent::__construct(
             "ゲームを作成",

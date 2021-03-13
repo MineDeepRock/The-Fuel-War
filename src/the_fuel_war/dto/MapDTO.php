@@ -23,12 +23,6 @@ class MapDTO
             $fuelSpawnVectors[] = new Vector3($fuelSpawnVector["x"], $fuelSpawnVector["y"], $fuelSpawnVector["z"]);
         }
 
-        $startVector = new Vector3(
-            $json["start_vector"]["x"],
-            $json["start_vector"]["y"],
-            $json["start_vector"]["z"],
-        );
-
         $itemDataList = [];
         foreach ($json["item_data_list"] as $item) {
             $vector = new Vector3(
@@ -61,7 +55,6 @@ class MapDTO
         return new Map(
             $json["level_name"],
             $json["name"],
-            $startVector,
             $fuelTankMapDataList,
             $fuelSpawnVectors,
             $itemDataList,
@@ -91,11 +84,6 @@ class MapDTO
             ];
         }
 
-        $startVector = [
-            "x" => $map->getStartVector()->getX(),
-            "y" => $map->getStartVector()->getY(),
-            "z" => $map->getStartVector()->getZ(),
-        ];
 
         $itemDataList = [];
         foreach ($map->getItemDataOnMapList() as $itemData) {
@@ -130,7 +118,6 @@ class MapDTO
         return [
             "level_name" => $map->getLevelName(),
             "name" => $map->getName(),
-            "start_vector" => $startVector,
             "fuel_tanks" => $fuelTanks,
             "fuel_spawn_vectors" => $fuelSpawnVectors,
             "item_data_list" => $itemDataList,
