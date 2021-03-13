@@ -4,7 +4,7 @@
 namespace the_fuel_war\models;
 
 
-use the_fuel_war\pmmp\utilities\TransformTimer;
+use the_fuel_war\utilities\TransformTimer;
 use the_fuel_war\types\FuelTankId;
 use the_fuel_war\types\GameId;
 use the_fuel_war\types\PlayerState;

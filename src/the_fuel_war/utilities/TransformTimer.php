@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_war\pmmp\utilities;
+namespace the_fuel_war\utilities;
 
 
 use bossbar_system\BossBar;

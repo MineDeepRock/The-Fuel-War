@@ -6,7 +6,7 @@ namespace the_fuel_war\models;
 use the_fuel_war\data\WaitingRoom;
 use the_fuel_war\pmmp\entities\FuelEntity;
 use the_fuel_war\pmmp\entities\FuelTankEntity;
-use the_fuel_war\pmmp\utilities\GameTimer;
+use the_fuel_war\utilities\GameTimer;
 use the_fuel_war\storages\GameStorage;
 use the_fuel_war\types\FuelTankId;
 use the_fuel_war\types\GameId;
