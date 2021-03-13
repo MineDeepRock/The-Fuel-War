@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
 use bossbar_system\BossBar;
-use the_fuel_ward\pmmp\scoreboards\LobbyScoreboard;
-use the_fuel_ward\services\QuitGameService;
+use the_fuel_war\pmmp\scoreboards\LobbyScoreboard;
+use the_fuel_war\services\QuitGameService;
 use pocketmine\Player;
 use pocketmine\Server;
 

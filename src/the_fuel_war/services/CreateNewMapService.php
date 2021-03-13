@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\services;
+namespace the_fuel_war\services;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\models\Map;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\models\Map;
 use pocketmine\block\BlockIds;
 use pocketmine\math\Vector3;
 

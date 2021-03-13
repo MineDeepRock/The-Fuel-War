@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\storages;
+namespace the_fuel_war\storages;
 
 
-use the_fuel_ward\data\WaitingRoom;
-use the_fuel_ward\DataFolderPath;
-use the_fuel_ward\dto\WaitingRoomDTO;
+use the_fuel_war\data\WaitingRoom;
+use the_fuel_war\DataFolderPath;
+use the_fuel_war\dto\WaitingRoomDTO;
 use pocketmine\math\Vector3;
 
 //TODO:ここでファイル操作を行っているのはおかしい

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\utilities;
+namespace the_fuel_war\pmmp\utilities;
 
 
 use bossbar_system\BossBar;
-use the_fuel_ward\pmmp\BossBarTypeList;
-use the_fuel_ward\pmmp\services\TransformToPlayerPMMPService;
+use the_fuel_war\pmmp\BossBarTypeList;
+use the_fuel_war\pmmp\services\TransformToPlayerPMMPService;
 use pocketmine\scheduler\TaskScheduler;
 use pocketmine\Server;
 

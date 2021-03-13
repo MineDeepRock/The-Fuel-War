@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\dto;
+namespace the_fuel_war\dto;
 
 
-use the_fuel_ward\data\WaitingRoom;
+use the_fuel_war\data\WaitingRoom;
 use pocketmine\math\Vector3;
 
 class WaitingRoomDTO

@@ -1,30 +1,30 @@
 <?php
 
-namespace the_fuel_ward\pmmp\listeners;
+namespace the_fuel_war\pmmp\listeners;
 
 
-use the_fuel_ward\dao\PlayerDataDAO;
-use the_fuel_ward\data\PlayerData;
-use the_fuel_ward\pmmp\entities\BloodPackEntity;
-use the_fuel_ward\pmmp\entities\CadaverEntity;
-use the_fuel_ward\pmmp\entities\DyingPlayerEntity;
-use the_fuel_ward\pmmp\entities\FuelEntity;
-use the_fuel_ward\pmmp\entities\FuelTankEntity;
-use the_fuel_ward\pmmp\entities\ItemGunEntity;
-use the_fuel_ward\pmmp\entities\ItemOnMapEntity;
-use the_fuel_ward\pmmp\events\FuelTankBecameFullEvent;
-use the_fuel_ward\pmmp\events\UpdatedGameDataEvent;
-use the_fuel_ward\pmmp\forms\ConfirmVoteForm;
-use the_fuel_ward\pmmp\items\FuelItem;
-use the_fuel_ward\pmmp\scoreboards\GameSettingsScoreboard;
-use the_fuel_ward\pmmp\scoreboards\OnGameScoreboard;
-use the_fuel_ward\pmmp\services\FinishGamePMMPService;
-use the_fuel_ward\pmmp\services\SendTeamChatPMMPService;
-use the_fuel_ward\services\FinishGameService;
-use the_fuel_ward\services\UpdatePlayerStateService;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\types\PlayerState;
+use the_fuel_war\dao\PlayerDataDAO;
+use the_fuel_war\data\PlayerData;
+use the_fuel_war\pmmp\entities\BloodPackEntity;
+use the_fuel_war\pmmp\entities\CadaverEntity;
+use the_fuel_war\pmmp\entities\DyingPlayerEntity;
+use the_fuel_war\pmmp\entities\FuelEntity;
+use the_fuel_war\pmmp\entities\FuelTankEntity;
+use the_fuel_war\pmmp\entities\ItemGunEntity;
+use the_fuel_war\pmmp\entities\ItemOnMapEntity;
+use the_fuel_war\pmmp\events\FuelTankBecameFullEvent;
+use the_fuel_war\pmmp\events\UpdatedGameDataEvent;
+use the_fuel_war\pmmp\forms\ConfirmVoteForm;
+use the_fuel_war\pmmp\items\FuelItem;
+use the_fuel_war\pmmp\scoreboards\GameSettingsScoreboard;
+use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
+use the_fuel_war\pmmp\services\FinishGamePMMPService;
+use the_fuel_war\pmmp\services\SendTeamChatPMMPService;
+use the_fuel_war\services\FinishGameService;
+use the_fuel_war\services\UpdatePlayerStateService;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\types\PlayerState;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDeathEvent;

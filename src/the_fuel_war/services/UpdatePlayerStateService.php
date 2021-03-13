@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\services;
+namespace the_fuel_war\services;
 
 
-use the_fuel_ward\models\PlayerStatus;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\types\PlayerState;
+use the_fuel_war\models\PlayerStatus;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\types\PlayerState;
 use pocketmine\scheduler\TaskScheduler;
 
 class UpdatePlayerStateService

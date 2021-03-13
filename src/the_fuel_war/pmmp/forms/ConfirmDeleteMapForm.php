@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\models\Map;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\models\Map;
 use form_builder\models\modal_form_elements\ModalFormButton;
 use form_builder\models\ModalForm;
 use pocketmine\Player;

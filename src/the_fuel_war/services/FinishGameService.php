@@ -1,15 +1,15 @@
 <?php
 
 
-namespace the_fuel_ward\services;
+namespace the_fuel_war\services;
 
 
-use the_fuel_ward\dao\PlayerDataDAO;
-use the_fuel_ward\data\PlayerData;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\storages\WaitingRoomStorage;
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\storages\GameStorage;
+use the_fuel_war\dao\PlayerDataDAO;
+use the_fuel_war\data\PlayerData;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\storages\WaitingRoomStorage;
+use the_fuel_war\types\GameId;
+use the_fuel_war\storages\GameStorage;
 
 class FinishGameService
 {

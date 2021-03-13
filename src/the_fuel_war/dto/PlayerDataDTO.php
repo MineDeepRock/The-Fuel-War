@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\dto;
+namespace the_fuel_war\dto;
 
 
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\data\PlayerData;
+use the_fuel_war\types\GameId;
+use the_fuel_war\data\PlayerData;
 
 class PlayerDataDTO
 {

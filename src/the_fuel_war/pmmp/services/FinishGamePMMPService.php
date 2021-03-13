@@ -1,16 +1,16 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
 use bossbar_system\BossBar;
-use the_fuel_ward\pmmp\scoreboards\LobbyScoreboard;
-use the_fuel_ward\pmmp\scoreboards\OnGameScoreboard;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\types\FuelTankId;
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\storages\GameStorage;
+use the_fuel_war\pmmp\scoreboards\LobbyScoreboard;
+use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\types\FuelTankId;
+use the_fuel_war\types\GameId;
+use the_fuel_war\storages\GameStorage;
 use pocketmine\Server;
 
 class FinishGamePMMPService

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\types;
+namespace the_fuel_war\types;
 
 
 class GameId

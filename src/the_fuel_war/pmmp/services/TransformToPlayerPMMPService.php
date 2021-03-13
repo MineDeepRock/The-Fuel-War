@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
-use the_fuel_ward\pmmp\PlayerInventoryContentsStorage;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\pmmp\utilities\GetPlayerSkin;
+use the_fuel_war\pmmp\PlayerInventoryContentsStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\pmmp\utilities\GetPlayerSkin;
 use pocketmine\entity\Attribute;
 use pocketmine\Player;
 

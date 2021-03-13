@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
-use the_fuel_ward\pmmp\entities\DyingPlayerEntity;
-use the_fuel_ward\services\UpdatePlayerStateService;
-use the_fuel_ward\types\PlayerState;
+use the_fuel_war\pmmp\entities\DyingPlayerEntity;
+use the_fuel_war\services\UpdatePlayerStateService;
+use the_fuel_war\types\PlayerState;
 use pocketmine\Player;
 use pocketmine\scheduler\TaskScheduler;
 

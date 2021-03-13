@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\data;
+namespace the_fuel_war\data;
 
 
 use pocketmine\math\Vector3;

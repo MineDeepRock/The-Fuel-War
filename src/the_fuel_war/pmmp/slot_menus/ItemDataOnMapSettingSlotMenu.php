@@ -1,14 +1,14 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\slot_menus;
+namespace the_fuel_war\pmmp\slot_menus;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\data\ItemDataOnMap;
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\forms\EditItemDataOnMapForm;
-use the_fuel_ward\pmmp\forms\ItemDataOnMapListForm;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\data\ItemDataOnMap;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\forms\EditItemDataOnMapForm;
+use the_fuel_war\pmmp\forms\ItemDataOnMapListForm;
 use pocketmine\item\ItemIds;
 use pocketmine\math\Vector3;
 use pocketmine\Player;

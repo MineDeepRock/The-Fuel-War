@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\entities;
+namespace the_fuel_war\pmmp\entities;
 
 
-use the_fuel_ward\data\ItemDataOnMap;
+use the_fuel_war\data\ItemDataOnMap;
 use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\nbt\tag\CompoundTag;

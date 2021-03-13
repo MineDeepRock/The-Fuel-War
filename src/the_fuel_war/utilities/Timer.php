@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\utilities;
+namespace the_fuel_war\pmmp\utilities;
 
 
 use pocketmine\scheduler\ClosureTask;

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\events;
+namespace the_fuel_war\pmmp\events;
 
 
-use the_fuel_ward\types\GameId;
+use the_fuel_war\types\GameId;
 use pocketmine\event\Event;
 
 class StoppedGameTimerEvent extends Event

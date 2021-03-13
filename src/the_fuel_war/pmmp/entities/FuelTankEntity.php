@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\entities;
+namespace the_fuel_war\pmmp\entities;
 
 
-use the_fuel_ward\types\FuelTankId;
-use the_fuel_ward\types\GameId;
+use the_fuel_war\types\FuelTankId;
+use the_fuel_war\types\GameId;
 use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\nbt\tag\CompoundTag;

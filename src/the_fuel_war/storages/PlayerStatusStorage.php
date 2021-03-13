@@ -1,14 +1,14 @@
 <?php
 
 
-namespace the_fuel_ward\storages;
+namespace the_fuel_war\storages;
 
 
-use the_fuel_ward\models\Game;
-use the_fuel_ward\models\PlayerStatus;
-use the_fuel_ward\types\FuelTankId;
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\types\PlayerState;
+use the_fuel_war\models\Game;
+use the_fuel_war\models\PlayerStatus;
+use the_fuel_war\types\FuelTankId;
+use the_fuel_war\types\GameId;
+use the_fuel_war\types\PlayerState;
 
 class PlayerStatusStorage
 {

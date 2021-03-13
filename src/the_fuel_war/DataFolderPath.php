@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward;
+namespace the_fuel_war;
 
 
 class DataFolderPath

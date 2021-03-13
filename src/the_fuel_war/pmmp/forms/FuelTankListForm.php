@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\slot_menus\AddFuelTankSlotMenu;
-use the_fuel_ward\pmmp\slot_menus\FuelTankSettingSlotMenu;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\slot_menus\AddFuelTankSlotMenu;
+use the_fuel_war\pmmp\slot_menus\FuelTankSettingSlotMenu;
 use form_builder\models\simple_form_elements\SimpleFormButton;
 use form_builder\models\SimpleForm;
 use pocketmine\Player;

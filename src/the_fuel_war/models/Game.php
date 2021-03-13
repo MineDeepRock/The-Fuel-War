@@ -1,15 +1,15 @@
 <?php
 
-namespace the_fuel_ward\models;
+namespace the_fuel_war\models;
 
 
-use the_fuel_ward\data\WaitingRoom;
-use the_fuel_ward\pmmp\entities\FuelEntity;
-use the_fuel_ward\pmmp\entities\FuelTankEntity;
-use the_fuel_ward\pmmp\utilities\GameTimer;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\types\FuelTankId;
-use the_fuel_ward\types\GameId;
+use the_fuel_war\data\WaitingRoom;
+use the_fuel_war\pmmp\entities\FuelEntity;
+use the_fuel_war\pmmp\entities\FuelTankEntity;
+use the_fuel_war\pmmp\utilities\GameTimer;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\types\FuelTankId;
+use the_fuel_war\types\GameId;
 use pocketmine\level\Position;
 use pocketmine\scheduler\ClosureTask;
 use pocketmine\scheduler\TaskHandler;

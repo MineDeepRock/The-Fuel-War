@@ -1,10 +1,10 @@
 <?php
 
-namespace the_fuel_ward\storages;
+namespace the_fuel_war\storages;
 
 
-use the_fuel_ward\models\Game;
-use the_fuel_ward\types\GameId;
+use the_fuel_war\models\Game;
+use the_fuel_war\types\GameId;
 
 class GameStorage
 {

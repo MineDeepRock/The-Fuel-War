@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\data;
+namespace the_fuel_war\data;
 
 
-use the_fuel_ward\pmmp\entities\ItemGunEntity;
+use the_fuel_war\pmmp\entities\ItemGunEntity;
 use pocketmine\entity\Entity;
 use pocketmine\level\Level;
 use pocketmine\level\Position;

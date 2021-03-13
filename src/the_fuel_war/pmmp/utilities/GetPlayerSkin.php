@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\utilities;
+namespace the_fuel_war\pmmp\utilities;
 
 
-use the_fuel_ward\DataFolderPath;
+use the_fuel_war\DataFolderPath;
 use pocketmine\entity\Skin;
 use pocketmine\Player;
 

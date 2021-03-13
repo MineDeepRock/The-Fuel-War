@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\items;
+namespace the_fuel_war\pmmp\items;
 
 
-use the_fuel_ward\pmmp\services\TransformToWolfPMMPService;
+use the_fuel_war\pmmp\services\TransformToWolfPMMPService;
 use pocketmine\item\ItemIds;
 use pocketmine\Player;
 use slot_menu_system\pmmp\items\SlotMenuElementItem;

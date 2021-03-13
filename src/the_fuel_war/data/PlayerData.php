@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\data;
+namespace the_fuel_war\data;
 
 
 //一時的なプレイヤーデータは含まない。
-use the_fuel_ward\types\GameId;
+use the_fuel_war\types\GameId;
 
 class PlayerData
 {

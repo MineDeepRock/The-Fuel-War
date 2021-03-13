@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\slot_menus;
+namespace the_fuel_war\pmmp\slot_menus;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\forms\BloodPackSpawnVectorListForm;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\forms\BloodPackSpawnVectorListForm;
 use pocketmine\item\ItemIds;
 use pocketmine\math\Vector3;
 use pocketmine\Player;

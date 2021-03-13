@@ -1,15 +1,15 @@
 <?php
 
-namespace the_fuel_ward\pmmp\entities;
+namespace the_fuel_war\pmmp\entities;
 
 
-use the_fuel_ward\DataFolderPath;
-use the_fuel_ward\pmmp\items\MedicineKitItem;
-use the_fuel_ward\pmmp\services\RescueDyingPlayerPMMPService;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\types\PlayerState;
+use the_fuel_war\DataFolderPath;
+use the_fuel_war\pmmp\items\MedicineKitItem;
+use the_fuel_war\pmmp\services\RescueDyingPlayerPMMPService;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\types\GameId;
+use the_fuel_war\types\PlayerState;
 use pocketmine\entity\Human;
 use pocketmine\entity\Skin;
 use pocketmine\level\Level;

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\services\CreateGameService;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\services\CreateGameService;
 use form_builder\models\custom_form_elements\Dropdown;
 use form_builder\models\custom_form_elements\Slider;
 use form_builder\models\CustomForm;

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\slot_menus\AddFuelSpawnVectorSlotMenu;
-use the_fuel_ward\pmmp\slot_menus\FuelVectorSettingSlotMenu;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\slot_menus\AddFuelSpawnVectorSlotMenu;
+use the_fuel_war\pmmp\slot_menus\FuelVectorSettingSlotMenu;
 use form_builder\models\simple_form_elements\SimpleFormButton;
 use form_builder\models\SimpleForm;
 use pocketmine\Player;

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\entities\BloodPackEntity;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\entities\BloodPackEntity;
 use pocketmine\Server;
 
 class SpawnBloodPackPMMPService

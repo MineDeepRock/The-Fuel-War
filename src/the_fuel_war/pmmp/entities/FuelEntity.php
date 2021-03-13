@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\entities;
+namespace the_fuel_war\pmmp\entities;
 
 
 use pocketmine\level\Level;

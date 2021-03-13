@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp;
+namespace the_fuel_war\pmmp;
 
 
 use pocketmine\inventory\Inventory;

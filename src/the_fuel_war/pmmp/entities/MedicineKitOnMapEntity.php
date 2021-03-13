@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\entities;
+namespace the_fuel_war\pmmp\entities;
 
 
-use the_fuel_ward\pmmp\items\MedicineKitItem;
+use the_fuel_war\pmmp\items\MedicineKitItem;
 use pocketmine\Player;
 
 class MedicineKitOnMapEntity extends ItemOnMapEntity

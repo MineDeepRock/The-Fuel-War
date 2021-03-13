@@ -1,14 +1,14 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\entities;
+namespace the_fuel_war\pmmp\entities;
 
 
-use the_fuel_ward\dao\PlayerDataDAO;
-use the_fuel_ward\DataFolderPath;
-use the_fuel_ward\pmmp\scoreboards\OnGameScoreboard;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\storages\PlayerStatusStorage;
+use the_fuel_war\dao\PlayerDataDAO;
+use the_fuel_war\DataFolderPath;
+use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
 use pocketmine\entity\Skin;
 use pocketmine\level\Level;
 use pocketmine\math\Vector3;

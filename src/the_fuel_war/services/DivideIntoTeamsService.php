@@ -1,13 +1,13 @@
 <?php
 
 
-namespace the_fuel_ward\services;
+namespace the_fuel_war\services;
 
 
-use the_fuel_ward\models\PlayerStatus;
-use the_fuel_ward\storages\PlayerStatusStorage;
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\storages\GameStorage;
+use the_fuel_war\models\PlayerStatus;
+use the_fuel_war\storages\PlayerStatusStorage;
+use the_fuel_war\types\GameId;
+use the_fuel_war\storages\GameStorage;
 use pocketmine\scheduler\TaskScheduler;
 
 class DivideIntoTeamsService

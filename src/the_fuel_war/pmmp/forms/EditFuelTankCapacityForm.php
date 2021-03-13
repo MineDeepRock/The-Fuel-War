@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\data\FuelTankMapData;
-use the_fuel_ward\models\Map;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\data\FuelTankMapData;
+use the_fuel_war\models\Map;
 use form_builder\models\custom_form_elements\Slider;
 use form_builder\models\CustomForm;
 use pocketmine\Player;

@@ -1,11 +1,11 @@
 <?php
 
-namespace the_fuel_ward\dao;
+namespace the_fuel_war\dao;
 
 
-use the_fuel_ward\dto\MapDTO;
-use the_fuel_ward\DataFolderPath;
-use the_fuel_ward\models\Map;
+use the_fuel_war\dto\MapDTO;
+use the_fuel_war\DataFolderPath;
+use the_fuel_war\models\Map;
 
 class MapDAO
 {

@@ -1,5 +1,5 @@
-name: the_fuel_ward
-main: the_fuel_ward\Main
+name: the_fuel_war
+main: the_fuel_war\Main
 version: "1.0"
 api: [3.0.0, 4.0.0]
 author: "suinua"

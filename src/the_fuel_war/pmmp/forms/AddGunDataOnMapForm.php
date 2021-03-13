@@ -1,13 +1,13 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\data\GunDataOnMap;
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\slot_menus\AddGunDataOnMapSlotMenu;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\data\GunDataOnMap;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\slot_menus\AddGunDataOnMapSlotMenu;
 use form_builder\models\custom_form_elements\Dropdown;
 use form_builder\models\CustomForm;
 use gun_system\GunSystem;

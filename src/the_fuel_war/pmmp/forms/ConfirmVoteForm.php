@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\pmmp\entities\DyingPlayerEntity;
+use the_fuel_war\pmmp\entities\DyingPlayerEntity;
 use form_builder\models\modal_form_elements\ModalFormButton;
 use form_builder\models\ModalForm;
 use pocketmine\Player;

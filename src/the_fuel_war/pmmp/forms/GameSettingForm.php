@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\pmmp\services\StartGamePMMPService;
+use the_fuel_war\pmmp\services\StartGamePMMPService;
 use form_builder\models\simple_form_elements\SimpleFormButton;
 use form_builder\models\SimpleForm;
 use pocketmine\Player;

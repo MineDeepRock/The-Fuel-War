@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\scoreboards;
+namespace the_fuel_war\pmmp\scoreboards;
 
 
-use the_fuel_ward\dao\PlayerDataDAO;
-use the_fuel_ward\storages\GameStorage;
+use the_fuel_war\dao\PlayerDataDAO;
+use the_fuel_war\storages\GameStorage;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use scoreboard_builder\Score;
@@ -33,7 +33,7 @@ class GameSettingsScoreboard extends Scoreboard
             new Score(TextFormat::BOLD . "> マップ:{$game->getMap()->getName()}"),
             new Score("----------------------"),
         ];
-        return parent::__create(ScoreboardSlot::sideBar(), "the_fuel_ward", $scores, ScoreSortType::smallToLarge());
+        return parent::__create(ScoreboardSlot::sideBar(), "the_fuel_war", $scores, ScoreSortType::smallToLarge());
     }
 
     static function send(Player $player) {

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\models;
+namespace the_fuel_war\models;
 
 
-use the_fuel_ward\pmmp\events\FuelTankBecameFullEvent;
-use the_fuel_ward\types\FuelTankId;
-use the_fuel_ward\types\GameId;
+use the_fuel_war\pmmp\events\FuelTankBecameFullEvent;
+use the_fuel_war\types\FuelTankId;
+use the_fuel_war\types\GameId;
 use pocketmine\math\Vector3;
 
 class FuelTank

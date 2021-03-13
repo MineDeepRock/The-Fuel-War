@@ -1,15 +1,15 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\utilities;
+namespace the_fuel_war\pmmp\utilities;
 
 
 use bossbar_system\BossBar;
-use the_fuel_ward\pmmp\BossBarTypeList;
-use the_fuel_ward\pmmp\services\FinishGamePMMPService;
-use the_fuel_ward\services\FinishGameService;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\types\GameId;
+use the_fuel_war\pmmp\BossBarTypeList;
+use the_fuel_war\pmmp\services\FinishGamePMMPService;
+use the_fuel_war\services\FinishGameService;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\types\GameId;
 use pocketmine\scheduler\TaskScheduler;
 use pocketmine\Server;
 

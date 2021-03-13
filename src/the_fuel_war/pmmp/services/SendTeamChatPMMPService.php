@@ -1,10 +1,10 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
-use the_fuel_ward\storages\PlayerStatusStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;

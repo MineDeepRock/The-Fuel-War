@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\slot_menus;
+namespace the_fuel_war\pmmp\slot_menus;
 
 
-use the_fuel_ward\data\WaitingRoom;
-use the_fuel_ward\pmmp\forms\WaitingRoomListForm;
-use the_fuel_ward\storages\WaitingRoomStorage;
+use the_fuel_war\data\WaitingRoom;
+use the_fuel_war\pmmp\forms\WaitingRoomListForm;
+use the_fuel_war\storages\WaitingRoomStorage;
 use pocketmine\item\ItemIds;
 use pocketmine\Player;
 use slot_menu_system\SlotMenu;

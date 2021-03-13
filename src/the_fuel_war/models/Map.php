@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\models;
+namespace the_fuel_war\models;
 
 
-use the_fuel_ward\data\FuelTankMapData;
-use the_fuel_ward\data\GunDataOnMap;
-use the_fuel_ward\data\ItemDataOnMap;
+use the_fuel_war\data\FuelTankMapData;
+use the_fuel_war\data\GunDataOnMap;
+use the_fuel_war\data\ItemDataOnMap;
 use pocketmine\math\Vector3;
 
 //TODO:ModelではなくDataではないか？？名前をMapDataにするべきか？

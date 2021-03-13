@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp;
+namespace the_fuel_war\pmmp;
 
 
 use bossbar_system\model\BossBarType;

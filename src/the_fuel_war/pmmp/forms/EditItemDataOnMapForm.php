@@ -1,14 +1,14 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\forms;
+namespace the_fuel_war\pmmp\forms;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\data\ItemDataOnMap;
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\items\MedicineKitItem;
-use the_fuel_ward\pmmp\slot_menus\ItemDataOnMapSettingSlotMenu;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\data\ItemDataOnMap;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\items\MedicineKitItem;
+use the_fuel_war\pmmp\slot_menus\ItemDataOnMapSettingSlotMenu;
 use form_builder\models\custom_form_elements\Dropdown;
 use form_builder\models\CustomForm;
 use pocketmine\Player;

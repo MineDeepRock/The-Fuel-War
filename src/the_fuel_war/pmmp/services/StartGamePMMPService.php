@@ -1,16 +1,16 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
-use the_fuel_ward\dao\PlayerDataDAO;
-use the_fuel_ward\pmmp\items\TransformItem;
-use the_fuel_ward\pmmp\scoreboards\GameSettingsScoreboard;
-use the_fuel_ward\pmmp\scoreboards\OnGameScoreboard;
-use the_fuel_ward\services\StartGameService;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\storages\PlayerStatusStorage;
+use the_fuel_war\dao\PlayerDataDAO;
+use the_fuel_war\pmmp\items\TransformItem;
+use the_fuel_war\pmmp\scoreboards\GameSettingsScoreboard;
+use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
+use the_fuel_war\services\StartGameService;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\PlayerStatusStorage;
 use pocketmine\Player;
 use pocketmine\scheduler\TaskScheduler;
 use pocketmine\Server;

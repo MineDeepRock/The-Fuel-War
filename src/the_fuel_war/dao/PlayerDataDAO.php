@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\dao;
+namespace the_fuel_war\dao;
 
 
-use the_fuel_ward\dto\PlayerDataDTO;
-use the_fuel_ward\DataFolderPath;
-use the_fuel_ward\data\PlayerData;
+use the_fuel_war\dto\PlayerDataDTO;
+use the_fuel_war\DataFolderPath;
+use the_fuel_war\data\PlayerData;
 
 class PlayerDataDAO
 {

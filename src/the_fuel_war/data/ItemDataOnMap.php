@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\data;
+namespace the_fuel_war\data;
 
 
-use the_fuel_ward\pmmp\entities\MedicineKitOnMapEntity;
-use the_fuel_ward\pmmp\items\MedicineKitItem;
+use the_fuel_war\pmmp\entities\MedicineKitOnMapEntity;
+use the_fuel_war\pmmp\items\MedicineKitItem;
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
 use pocketmine\level\Level;

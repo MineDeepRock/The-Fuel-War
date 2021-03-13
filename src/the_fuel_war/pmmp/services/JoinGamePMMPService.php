@@ -1,14 +1,14 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\services;
+namespace the_fuel_war\pmmp\services;
 
 
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\pmmp\scoreboards\GameSettingsScoreboard;
-use the_fuel_ward\pmmp\scoreboards\LobbyScoreboard;
-use the_fuel_ward\services\JoinGameService;
-use the_fuel_ward\storages\GameStorage;
+use the_fuel_war\types\GameId;
+use the_fuel_war\pmmp\scoreboards\GameSettingsScoreboard;
+use the_fuel_war\pmmp\scoreboards\LobbyScoreboard;
+use the_fuel_war\services\JoinGameService;
+use the_fuel_war\storages\GameStorage;
 use pocketmine\Player;
 use pocketmine\scheduler\TaskScheduler;
 use pocketmine\Server;

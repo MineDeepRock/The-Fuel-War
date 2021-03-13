@@ -1,12 +1,12 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\slot_menus;
+namespace the_fuel_war\pmmp\slot_menus;
 
 
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\forms\AddItemDataOnMapForm;
-use the_fuel_ward\pmmp\forms\ItemDataOnMapListForm;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\forms\AddItemDataOnMapForm;
+use the_fuel_war\pmmp\forms\ItemDataOnMapListForm;
 use pocketmine\block\Block;
 use pocketmine\item\ItemIds;
 use pocketmine\Player;

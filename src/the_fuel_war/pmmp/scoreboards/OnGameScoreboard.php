@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\scoreboards;
+namespace the_fuel_war\pmmp\scoreboards;
 
 
-use the_fuel_ward\models\Game;
-use the_fuel_ward\storages\PlayerStatusStorage;
+use the_fuel_war\models\Game;
+use the_fuel_war\storages\PlayerStatusStorage;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use scoreboard_builder\Score;

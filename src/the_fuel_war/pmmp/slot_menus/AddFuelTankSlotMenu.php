@@ -1,13 +1,13 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\slot_menus;
+namespace the_fuel_war\pmmp\slot_menus;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\data\FuelTankMapData;
-use the_fuel_ward\models\Map;
-use the_fuel_ward\pmmp\forms\FuelTankListForm;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\data\FuelTankMapData;
+use the_fuel_war\models\Map;
+use the_fuel_war\pmmp\forms\FuelTankListForm;
 use pocketmine\block\Block;
 use pocketmine\item\ItemIds;
 use pocketmine\math\Vector3;

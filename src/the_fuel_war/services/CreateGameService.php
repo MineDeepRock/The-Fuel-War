@@ -1,13 +1,13 @@
 <?php
 
-namespace the_fuel_ward\services;
+namespace the_fuel_war\services;
 
 
-use the_fuel_ward\dao\MapDAO;
-use the_fuel_ward\dao\PlayerDataDAO;
-use the_fuel_ward\models\Game;
-use the_fuel_ward\storages\GameStorage;
-use the_fuel_ward\storages\WaitingRoomStorage;
+use the_fuel_war\dao\MapDAO;
+use the_fuel_war\dao\PlayerDataDAO;
+use the_fuel_war\models\Game;
+use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\WaitingRoomStorage;
 use pocketmine\scheduler\TaskScheduler;
 
 class CreateGameService

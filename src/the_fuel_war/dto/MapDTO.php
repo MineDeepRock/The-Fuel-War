@@ -1,12 +1,12 @@
 <?php
 
-namespace the_fuel_ward\dto;
+namespace the_fuel_war\dto;
 
 
-use the_fuel_ward\data\FuelTankMapData;
-use the_fuel_ward\data\GunDataOnMap;
-use the_fuel_ward\data\ItemDataOnMap;
-use the_fuel_ward\models\Map;
+use the_fuel_war\data\FuelTankMapData;
+use the_fuel_war\data\GunDataOnMap;
+use the_fuel_war\data\ItemDataOnMap;
+use the_fuel_war\models\Map;
 use pocketmine\math\Vector3;
 
 class MapDTO

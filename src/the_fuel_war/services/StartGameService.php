@@ -1,11 +1,11 @@
 <?php
 
 
-namespace the_fuel_ward\services;
+namespace the_fuel_war\services;
 
 
-use the_fuel_ward\types\GameId;
-use the_fuel_ward\storages\GameStorage;
+use the_fuel_war\types\GameId;
+use the_fuel_war\storages\GameStorage;
 use pocketmine\scheduler\TaskScheduler;
 
 class StartGameService

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace the_fuel_ward\pmmp\scoreboards;
+namespace the_fuel_war\pmmp\scoreboards;
 
 
 use pocketmine\Player;
