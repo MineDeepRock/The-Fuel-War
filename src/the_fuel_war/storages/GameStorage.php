@@ -45,6 +45,18 @@ class GameStorage
         return null;
     }
 
+    static function findOwnerName(string $name): ?Game {
+        if ($name === null) return null;
+
+        foreach (self::$games as $game) {
+            if ($game->getGameOwnerName() === $name) {
+                return $game;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * @return array|Game[]
      */

@@ -5,12 +5,15 @@ namespace the_fuel_war\pmmp\forms;
 
 
 use the_fuel_war\dao\MapDAO;
+use the_fuel_war\pmmp\services\JoinGamePMMPService;
 use the_fuel_war\services\CreateGameService;
 use form_builder\models\custom_form_elements\Dropdown;
 use form_builder\models\custom_form_elements\Slider;
 use form_builder\models\CustomForm;
 use pocketmine\Player;
 use pocketmine\scheduler\TaskScheduler;
+use the_fuel_war\services\JoinGameService;
+use the_fuel_war\storages\GameStorage;
 
 class CreateGameForm extends CustomForm
 {
@@ -46,6 +49,11 @@ class CreateGameForm extends CustomForm
         $result = CreateGameService::execute($player->getName(), $mapName, $maxPlayers, $this->scheduler);
         if ($result) {
             $player->sendMessage("ゲームを作成しました");
+
+            $game = GameStorage::findOwnerName($player->getName());
+            //オーナーも参加させる
+            JoinGameService::execute($game->getGameId(), $game->getGameOwnerName(), $this->scheduler);
+            JoinGamePMMPService::execute($player, $game->getGameId(), $this->scheduler);
         } else {
             $player->sendMessage("ゲームを作成できませんでした");
         }

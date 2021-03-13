@@ -23,13 +23,6 @@ class CreateGameService
         if (count($map->getFuelTankMapDataList()) > $maxPlayers) return false;
 
         $game = new Game($gameOwnerName, $map, $maxPlayers, $waitingRoom, $scheduler);
-        $result = GameStorage::add($game);
-
-        if (!$result) return false;
-
-
-        //オーナーも参加させる
-        JoinGameService::execute($game->getGameId(), $game->getGameOwnerName(), $scheduler);
-        return true;
+        return GameStorage::add($game);
     }
 }
