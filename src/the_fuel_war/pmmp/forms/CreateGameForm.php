@@ -15,6 +15,7 @@ use pocketmine\Player;
 use pocketmine\scheduler\TaskScheduler;
 use the_fuel_war\services\JoinGameService;
 use the_fuel_war\storages\GameStorage;
+use the_fuel_war\storages\UsingMapNameList;
 
 class CreateGameForm extends CustomForm
 {
@@ -29,7 +30,9 @@ class CreateGameForm extends CustomForm
 
         $mapNames = [];
         foreach (MapDAO::all() as $map) {
-            $mapNames[] = $map->getName();
+            if (!UsingMapNameList::isExist($map->getName())) {
+                $mapNames[] = $map->getName();
+            }
         }
 
         $this->mapNameElement = new Dropdown("マップ", $mapNames);
