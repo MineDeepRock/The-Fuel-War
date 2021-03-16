@@ -5,6 +5,7 @@ namespace the_fuel_war\pmmp\forms;
 
 
 use the_fuel_war\pmmp\services\JoinGamePMMPService;
+use the_fuel_war\services\JoinGameService;
 use the_fuel_war\storages\GameStorage;
 use form_builder\models\simple_form_elements\SimpleFormButton;
 use form_builder\models\SimpleForm;
@@ -34,7 +35,12 @@ class GameListForm extends SimpleForm
                     TextFormat::GREEN . "参加可能" . TextFormat::RESET . $text,
                     null,
                     function (Player $player) use ($gameId): void {
-                        JoinGamePMMPService::execute($player, $gameId, $this->scheduler);
+                        $result = JoinGameService::execute($gameId, $player->getName(), $this->scheduler);
+                        if ($result) {
+                            JoinGamePMMPService::execute($player, $gameId);
+                        } else {
+                            $player->sendMessage("ゲームに参加できませんでした");
+                        }
                     }
                 );
 

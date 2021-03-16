@@ -58,7 +58,7 @@ class CreateGameForm extends CustomForm
             $game = GameStorage::findOwnerName($player->getName());
             //オーナーも参加させる
             JoinGameService::execute($game->getGameId(), $game->getGameOwnerName(), $this->scheduler);
-            JoinGamePMMPService::execute($player, $game->getGameId(), $this->scheduler);
+            JoinGamePMMPService::execute($player, $game->getGameId());
         } else {
             $player->sendMessage("ゲームを作成できませんでした");
         }

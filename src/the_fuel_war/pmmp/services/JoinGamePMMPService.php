@@ -15,26 +15,23 @@ use pocketmine\Server;
 
 class JoinGamePMMPService
 {
-    static function execute(Player $player, GameId $gameId, TaskScheduler $scheduler): void {
-        $result = JoinGameService::execute($gameId, $player->getName(), $scheduler);
-        if ($result) {
-            $player->sendMessage("ゲームに参加しました");
-            LobbyScoreboard::delete($player);
-            GameSettingsScoreboard::send($player);
+    static function execute(Player $player, GameId $gameId): void {
 
-            $game = GameStorage::findById($gameId);
+        $player->sendMessage("ゲームに参加しました");
+        LobbyScoreboard::delete($player);
+        GameSettingsScoreboard::send($player);
 
-            //TODO:待合室がロビー以外を考慮する
-            $player->teleport($game->getWaitingRoom()->getVector());
+        $game = GameStorage::findById($gameId);
 
-            foreach ($game->getPlayerNameList() as $participantName) {
-                $participant = Server::getInstance()->getPlayer($participantName);
-                if ($participant->getName() === $player->getName()) continue;
+        //TODO:待合室がロビー以外を考慮する
+        $player->teleport($game->getWaitingRoom()->getVector());
 
-                $participant->sendMessage($player->getName() . "がゲームに参加しました");
-            }
-        } else {
-            $player->sendMessage("ゲームに参加できませんでした");
+        foreach ($game->getPlayerNameList() as $participantName) {
+            $participant = Server::getInstance()->getPlayer($participantName);
+            if ($participant->getName() === $player->getName()) continue;
+
+            $participant->sendMessage($player->getName() . "がゲームに参加しました");
         }
+
     }
 }
