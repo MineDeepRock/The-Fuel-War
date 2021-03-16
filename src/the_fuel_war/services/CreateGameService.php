@@ -12,7 +12,7 @@ use pocketmine\scheduler\TaskScheduler;
 
 class CreateGameService
 {
-    static function execute(string $gameOwnerName, string $mapName, int $maxPlayers, TaskScheduler $scheduler): bool {
+    static function execute(string $gameOwnerName, string $mapName, int $maxPlayers, bool $canRespawn,TaskScheduler $scheduler): bool {
         $ownerData = PlayerDataDAO::findByName($gameOwnerName);
         if ($ownerData->getBelongGameId() !== null) return false;
 
@@ -22,7 +22,7 @@ class CreateGameService
         $map = MapDAO::findByName($mapName);
         if (count($map->getFuelTankMapDataList()) > $maxPlayers) return false;
 
-        $game = new Game($gameOwnerName, $map, $maxPlayers, $waitingRoom, $scheduler);
+        $game = new Game($gameOwnerName, $map, $maxPlayers, $canRespawn,$waitingRoom, $scheduler);
         return GameStorage::add($game);
     }
 }

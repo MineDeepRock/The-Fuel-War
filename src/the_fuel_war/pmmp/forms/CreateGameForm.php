@@ -4,6 +4,7 @@
 namespace the_fuel_war\pmmp\forms;
 
 
+use form_builder\models\custom_form_elements\Toggle;
 use the_fuel_war\dao\MapDAO;
 use the_fuel_war\pmmp\services\JoinGamePMMPService;
 use the_fuel_war\services\CreateGameService;
@@ -21,6 +22,7 @@ class CreateGameForm extends CustomForm
 
     private Dropdown $mapNameElement;
     private Slider $maxPlayersElement;
+    private Toggle $canRespawnElement;
 
     public function __construct(TaskScheduler $scheduler) {
         $this->scheduler = $scheduler;
@@ -32,12 +34,14 @@ class CreateGameForm extends CustomForm
 
         $this->mapNameElement = new Dropdown("マップ", $mapNames);
         $this->maxPlayersElement = new Slider("最大プレイヤー数", 2, 10, 8);
+        $this->canRespawnElement = new Toggle("リスポーン", true);
 
         parent::__construct(
             "ゲームを作成",
             [
                 $this->mapNameElement,
                 $this->maxPlayersElement,
+                $this->canRespawnElement,
             ]
         );
     }
@@ -45,8 +49,9 @@ class CreateGameForm extends CustomForm
     function onSubmit(Player $player): void {
         $mapName = $this->mapNameElement->getResult();
         $maxPlayers = intval($this->maxPlayersElement->getResult());
+        $canRespawn = $this->canRespawnElement->getResult();
 
-        $result = CreateGameService::execute($player->getName(), $mapName, $maxPlayers, $this->scheduler);
+        $result = CreateGameService::execute($player->getName(), $mapName, $maxPlayers, $canRespawn, $this->scheduler);
         if ($result) {
             $player->sendMessage("ゲームを作成しました");
 

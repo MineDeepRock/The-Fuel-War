@@ -22,16 +22,16 @@ class Game
     private GameId $gameId;
     private string $gameOwnerName;
 
+    private bool $canRespawn;
     private int $maxPlayers;
-
     private array $playerNameList;//TODO:rename
-
     /**
      * @var FuelTank[]
      */
     private array $fuelTanks;
 
     private Map $map;
+
     private GameTimer $timer;
 
     private TaskScheduler $scheduler;
@@ -42,7 +42,7 @@ class Game
 
     private WaitingRoom $waitingRoom;
 
-    public function __construct(string $gameOwnerName, Map $map, int $maxPlayers, WaitingRoom $waitingRoom, TaskScheduler $scheduler) {
+    public function __construct(string $gameOwnerName, Map $map, int $maxPlayers, bool $canRespawn,WaitingRoom $waitingRoom, TaskScheduler $scheduler) {
         $this->gameId = GameId::asNew();
         $fuelTanks = [];
         foreach ($map->getFuelTankMapDataList() as $fuelTankMapData) {
@@ -61,6 +61,7 @@ class Game
         $this->isStarted = false;
         $this->isFinished = false;
         $this->waitingRoom = $waitingRoom;
+        $this->canRespawn = $canRespawn;
     }
 
     public function start(): void {
@@ -225,5 +226,12 @@ class Game
      */
     public function getWaitingRoom(): WaitingRoom {
         return $this->waitingRoom;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCanRespawn(): bool {
+        return $this->canRespawn;
     }
 }

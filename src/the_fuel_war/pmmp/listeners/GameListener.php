@@ -3,6 +3,7 @@
 namespace the_fuel_war\pmmp\listeners;
 
 
+use pocketmine\scheduler\ClosureTask;
 use the_fuel_war\dao\PlayerDataDAO;
 use the_fuel_war\data\PlayerData;
 use the_fuel_war\pmmp\entities\BloodPackEntity;
@@ -19,6 +20,7 @@ use the_fuel_war\pmmp\items\FuelItem;
 use the_fuel_war\pmmp\scoreboards\GameSettingsScoreboard;
 use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
 use the_fuel_war\pmmp\services\FinishGamePMMPService;
+use the_fuel_war\pmmp\services\RescueCadaverEntityPMMPService;
 use the_fuel_war\pmmp\services\SendTeamChatPMMPService;
 use the_fuel_war\services\FinishGameService;
 use the_fuel_war\services\UpdatePlayerStateService;
@@ -127,6 +129,12 @@ class GameListener implements Listener
         $player = $event->getPlayer();
         $playerData = PlayerDataDAO::findByName($player->getName());
         if (!$this->belongGameIsInProgress($playerData)) return;
+
+        //その場に固定
+        $player->setGamemode(Player::SPECTATOR);
+        $player->setImmobile(true);
+        UpdatePlayerStateService::execute($player->getName(), PlayerState::Dying(), $this->scheduler);
+
         $game = GameStorage::findById($playerData->getBelongGameId());
 
         //スコアボード更新
@@ -145,16 +153,27 @@ class GameListener implements Listener
         if (!($killer instanceof Player)) return;
 
         $killerStatus = PlayerStatusStorage::findByName($killer->getName());
-        if ($killerStatus->nowTransforming()) {
-            $dyingPlayerEntity = new DyingPlayerEntity($player->getLevel(), $playerData->getBelongGameId(), $player, true, $this->scheduler);
+        if ($game->isCanRespawn()) {
+            $cadaverEntity = new CadaverEntity($player->getLevel(), $player);
+            $cadaverEntity->spawnToAll();
+
+            $this->scheduler->scheduleDelayedTask(new ClosureTask(
+                function (int $currentTick) use ($cadaverEntity, $player): void {
+                    RescueCadaverEntityPMMPService::execute($cadaverEntity, $this->scheduler);
+                }), 20 * 5);
 
         } else {
-            $dyingPlayerEntity = new DyingPlayerEntity($player->getLevel(), $playerData->getBelongGameId(), $player, false, $this->scheduler);
+            if ($killerStatus->nowTransforming()) {
+                $dyingPlayerEntity = new DyingPlayerEntity($player->getLevel(), $playerData->getBelongGameId(), $player, true, $this->scheduler);
 
+            } else {
+                $dyingPlayerEntity = new DyingPlayerEntity($player->getLevel(), $playerData->getBelongGameId(), $player, false, $this->scheduler);
+
+            }
+
+            $player->setSpawn($player->getPosition());
+            $dyingPlayerEntity->spawnToAll();
         }
-
-        $player->setSpawn($player->getPosition());
-        $dyingPlayerEntity->spawnToAll();
 
         //全員死んだら引き分けになる
         if (count(PlayerStatusStorage::getAlivePlayers($game->getGameId())) === 0) {
@@ -180,9 +199,11 @@ class GameListener implements Listener
         $playerData = PlayerDataDAO::findByName($player->getName());
         if (!$this->belongGameIsInProgress($playerData)) return;
 
-        $player->setGamemode(Player::SPECTATOR);
-        $player->setImmobile(true);
-        UpdatePlayerStateService::execute($player->getName(), PlayerState::Dying(), $this->scheduler);
+        //変身中に死んでいた場合
+        $playerStatus = PlayerStatusStorage::findByName($player->getName());
+        if ($playerStatus->nowTransforming()) {
+            $playerStatus->stopTransformTimer();
+        }
     }
 
     public function onTapDyingPlayerEntity(EntityDamageByEntityEvent $event) {
@@ -235,7 +256,6 @@ class GameListener implements Listener
         $owner->setGamemode(Player::SPECTATOR);
         $owner->setImmobile(false);
 
-        $game = GameStorage::findById($belongGameId);
         UpdatePlayerStateService::execute($owner->getName(), PlayerState::Dead(), $this->scheduler);
 
         $cadaverEntity = new CadaverEntity($owner->getLevel(), $owner);

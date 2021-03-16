@@ -27,6 +27,7 @@ class PlayerStatusStorage
     static function delete(string $name): void {
 
         foreach (self::$playerStatusList as $key => $playerStatus) {
+            self::$playerStatusList[$key]->stopTransformTimer();
             if ($playerStatus->getName() === $name) unset(self::$playerStatusList[$key]);
         }
 
