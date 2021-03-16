@@ -2,6 +2,9 @@
 
 namespace the_fuel_war;
 
+use pocketmine\block\Block;
+use pocketmine\level\Position;
+use pocketmine\scheduler\ClosureTask;
 use the_fuel_war\dao\PlayerDataDAO;
 use the_fuel_war\data\PlayerData;
 use the_fuel_war\pmmp\entities\BloodPackEntity;
@@ -68,6 +71,11 @@ class Main extends PluginBase implements Listener
 
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
+        $lobbyLevel = Server::getInstance()->getLevelByName("lobby");
+        $player->setImmobile(false);
+        $player->setGamemode(Player::ADVENTURE);
+        $player->teleport($lobbyLevel->getSpawnLocation());
+
         $playerName = $player->getName();
         SavePlayerSkin::execute($player);
 
