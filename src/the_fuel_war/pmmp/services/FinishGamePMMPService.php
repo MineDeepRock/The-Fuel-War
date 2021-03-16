@@ -58,6 +58,8 @@ class FinishGamePMMPService
             $player->teleport($level->getSpawnLocation());
             $player->getInventory()->setContents([]);
             LobbyScoreboard::send($player);
+
+            CleanMapPMMPService::execute($game->getMap());
         }
     }
 }
