@@ -20,6 +20,7 @@ use the_fuel_war\pmmp\forms\CreateGameForm;
 use the_fuel_war\pmmp\forms\GameListForm;
 use the_fuel_war\pmmp\forms\GameSettingForm;
 use the_fuel_war\pmmp\forms\MainMapForm;
+use the_fuel_war\pmmp\forms\SpawnNPCForm;
 use the_fuel_war\pmmp\forms\WaitingRoomListForm;
 use the_fuel_war\pmmp\forms\WorldListForm;
 use the_fuel_war\pmmp\items\RemoveNPCItem;
@@ -127,46 +128,8 @@ class Main extends PluginBase implements Listener
                 $sender->sendForm(new WaitingRoomListForm());
                 return true;
             }
-            if ($label === "board") {
-                $nbt = new CompoundTag('', [
-                    'Pos' => new ListTag('Pos', [
-                        new DoubleTag('', $sender->getX()),
-                        new DoubleTag('', $sender->getY()),
-                        new DoubleTag('', $sender->getZ())
-                    ]),
-                    'Motion' => new ListTag('Motion', [
-                        new DoubleTag('', 0),
-                        new DoubleTag('', 0),
-                        new DoubleTag('', 0)
-                    ]),
-                    'Rotation' => new ListTag('Rotation', [
-                        new FloatTag("", $sender->getYaw()),
-                        new FloatTag("", 0)
-                    ]),
-                ]);
-                $entity = new GameListBulletinBoard($sender->getLevel(), $nbt);
-                $entity->spawnToAll();
-                return true;
-            }
-            if ($label === "computer") {
-                $nbt = new CompoundTag('', [
-                    'Pos' => new ListTag('Pos', [
-                        new DoubleTag('', $sender->getX()),
-                        new DoubleTag('', $sender->getY()),
-                        new DoubleTag('', $sender->getZ())
-                    ]),
-                    'Motion' => new ListTag('Motion', [
-                        new DoubleTag('', 0),
-                        new DoubleTag('', 0),
-                        new DoubleTag('', 0)
-                    ]),
-                    'Rotation' => new ListTag('Rotation', [
-                        new FloatTag("", $sender->getYaw()),
-                        new FloatTag("", 0)
-                    ]),
-                ]);
-                $entity = new GameCreationComputer($sender->getLevel(), $nbt);
-                $entity->spawnToAll();
+            if ($label === "npc") {
+                $sender->sendForm(new SpawnNPCForm());
                 return true;
             }
             if ($label === "removenpc") {
