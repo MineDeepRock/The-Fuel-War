@@ -14,9 +14,10 @@ abstract class Timer
     private int $timeLeft;
 
     private TaskScheduler $scheduler;
-    private TaskHandler $handler;
+    private ?TaskHandler $handler;
 
     public function __construct(int $initialTime, int $timeLeft, TaskScheduler $scheduler) {
+        $this->handler = null;
         $this->timeLeft = $timeLeft;
         $this->initialTime = $initialTime;
         $this->scheduler = $scheduler;
@@ -40,6 +41,8 @@ abstract class Timer
     abstract public function onFinishedTimer(): void;
 
     public function stop(): void {
+        $this->timeLeft = 0;
+
         if ($this->handler !== null) {
             if (!$this->handler->isCancelled()) {
                 $this->onStoppedTimer();
