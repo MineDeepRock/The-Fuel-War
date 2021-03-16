@@ -18,13 +18,16 @@ class QuitGameService
         if ($belongGameId === null) return false;
 
         PlayerDataDAO::update(new PlayerData($playerName));
-        $game = GameStorage::findById($belongGameId);
-        $game->removePlayer($playerName);
-
         PlayerStatusStorage::delete($playerName);
 
-        $event = new UpdatedGameDataEvent($belongGameId);
-        $event->call();
+        $game = GameStorage::findById($belongGameId);
+
+        if ($game !== null) {
+            $game->removePlayer($playerName);
+            $event = new UpdatedGameDataEvent($belongGameId);
+            $event->call();
+        }
+
         return true;
     }
 }
