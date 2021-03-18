@@ -19,14 +19,22 @@ class FinishGamePMMPService
     static function execute(GameId $gameId, ?FuelTankId $winFuelTankId = null): void {
         $game = GameStorage::findById($gameId);
         if ($game === null) return;
+        $winPlayers = [];
 
-        if ($winFuelTankId == null) {
+        if ($winFuelTankId === null) {
             foreach ($game->getFuelTanks() as $fuelTank) {
                 if ($fuelTank->isFull()) {
                     $winFuelTankId = $fuelTank->getTankId();
+                    $winPlayers = PlayerStatusStorage::findByBelongTankId($gameId, $fuelTank->getTankId());
                 }
             }
         }
+
+        $winPlayersAsString = "--勝利したチーム--";
+        foreach ($winPlayers as $winPlayer) {
+            $winPlayersAsString .= $winPlayer->getName() . "\n";
+        }
+        $winPlayersAsString .= "---------------";
 
         //メッセージの送信+ロビーへ送還
         foreach (PlayerStatusStorage::getPlayers($gameId) as $status) {
@@ -47,6 +55,7 @@ class FinishGamePMMPService
             }
 
             $player->sendMessage($message);
+            $player->sendMessage($winPlayersAsString);
             //スコアボードを削除
             OnGameScoreboard::delete($player);
 
