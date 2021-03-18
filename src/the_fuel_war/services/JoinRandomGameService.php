@@ -18,7 +18,7 @@ class JoinRandomGameService
         }
         if (count($games) <= 0) return false;
 
-        usort($games, array('GameManager', 'sortByNumberOfPlayerCanJoin'));
+        usort($games, fn($a, $b) => self::sortByNumberOfPlayerCanJoin($a, $b));
 
         return JoinGameService::execute($games[0]->getGameId(), $playerName, $taskScheduler);
     }

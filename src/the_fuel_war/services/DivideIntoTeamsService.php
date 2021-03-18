@@ -60,13 +60,6 @@ class DivideIntoTeamsService
                 }
             }
         }
-
-        if (count($playerNames) > count($fuelTanks)) {
-
-        } else {
-
-        }
-
         return true;
     }
 }
