@@ -12,6 +12,7 @@ use scoreboard_builder\Score;
 use scoreboard_builder\Scoreboard;
 use scoreboard_builder\ScoreboardSlot;
 use scoreboard_builder\ScoreSortType;
+use the_fuel_war\types\PlayerState;
 
 class OnGameScoreboard extends Scoreboard
 {
@@ -26,7 +27,6 @@ class OnGameScoreboard extends Scoreboard
         foreach ($game->getFuelTanks() as $fuelTank) {
             foreach (PlayerStatusStorage::findByBelongTankId($game->getGameId(), $fuelTank->getTankId()) as $status) {
                 $playerName = $status->getName();
-
                 if ($status->nowTransforming()) {
                     $bloodGaugeAsString = TextFormat::RED . "NOW TRANSFORMING";
 
@@ -41,7 +41,7 @@ class OnGameScoreboard extends Scoreboard
                     $bloodGaugeAsString .= str_repeat(TextFormat::WHITE . "■", 5 - $status->getBloodTank());
                 }
 
-                $scores[] = new Score(">" . $playerName . $bloodGaugeAsString);
+                $scores[] = new Score(">" . $playerName . "[{$status->getState()}]" . $bloodGaugeAsString);
             }
 
             $index++;
