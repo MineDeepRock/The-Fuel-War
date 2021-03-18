@@ -20,6 +20,7 @@ use the_fuel_war\pmmp\items\FuelItem;
 use the_fuel_war\pmmp\scoreboards\GameSettingsScoreboard;
 use the_fuel_war\pmmp\scoreboards\OnGameScoreboard;
 use the_fuel_war\pmmp\services\FinishGamePMMPService;
+use the_fuel_war\pmmp\services\KillFuelTankEntityPMMPService;
 use the_fuel_war\pmmp\services\RescueCadaverEntityPMMPService;
 use the_fuel_war\pmmp\services\SendTeamChatPMMPService;
 use the_fuel_war\services\FinishGameService;
@@ -252,11 +253,32 @@ class GameListener implements Listener
 
         $ownerData = PlayerDataDAO::findByName($owner->getName());
         $belongGameId = $ownerData->getBelongGameId();
-        if ($belongGameId === null) return;
+        $game = GameStorage::findById($belongGameId);
+        if ($game === null) return;
         $owner->setGamemode(Player::SPECTATOR);
-        $owner->setImmobile(false);
-
         UpdatePlayerStateService::execute($owner->getName(), PlayerState::Dead(), $this->scheduler);
+
+        if ($game->isCanRespawn()) {
+            //リスポーンするなら動きを止める
+            $owner->setImmobile(true);
+
+        } else {
+            //蘇生の可能性があれば動きを止める
+            $ownerStatus = PlayerStatusStorage::findByName($owner->getName());
+            $aliveTeammateNameList = [];
+            foreach (PlayerStatusStorage::findByBelongTankId($belongGameId, $ownerStatus->getBelongTankId()) as $teammate) {
+                if ($teammate->getState()->equals(PlayerState::Alive())) {
+                    $aliveTeammateNameList[] = $teammate->getName();
+                }
+            }
+            if (count($aliveTeammateNameList) === 0) {
+                //敗北確定
+                $owner->setImmobile(false);
+                KillFuelTankEntityPMMPService::execute($owner->getLevel(), $ownerStatus->getBelongTankId());
+            } else {
+                $owner->setImmobile(true);
+            }
+        }
 
         $cadaverEntity = new CadaverEntity($owner->getLevel(), $owner);
         $cadaverEntity->spawnToAll();
@@ -304,6 +326,7 @@ class GameListener implements Listener
     public function onUpdatedGameData(UpdatedGameDataEvent $event) {
         $game = GameStorage::findById($event->getGameId());
         if ($game === null) return;
+        if ($game->isStarted()) return;
 
         foreach ($game->getPlayerNameList() as $playerName) {
             $player = Server::getInstance()->getPlayer($playerName);
