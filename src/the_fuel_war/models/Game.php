@@ -6,6 +6,7 @@ namespace the_fuel_war\models;
 use the_fuel_war\data\WaitingRoom;
 use the_fuel_war\pmmp\entities\FuelEntity;
 use the_fuel_war\pmmp\entities\FuelTankEntity;
+use the_fuel_war\types\GameType;
 use the_fuel_war\utilities\GameTimer;
 use the_fuel_war\storages\GameStorage;
 use the_fuel_war\types\FuelTankId;
@@ -22,6 +23,7 @@ class Game
     private GameId $gameId;
     private string $gameOwnerName;
 
+    private GameType $gameType;
     private bool $canRespawn;
     private int $maxPlayers;
     private array $playerNameList;//TODO:rename
@@ -42,8 +44,9 @@ class Game
 
     private WaitingRoom $waitingRoom;
 
-    public function __construct(string $gameOwnerName, Map $map, int $maxPlayers, bool $canRespawn,WaitingRoom $waitingRoom, TaskScheduler $scheduler) {
+    public function __construct(string $gameOwnerName, Map $map, GameType $gameType, int $maxPlayers, bool $canRespawn, WaitingRoom $waitingRoom, TaskScheduler $scheduler) {
         $this->gameId = GameId::asNew();
+        $this->gameType = $gameType;
         $fuelTanks = [];
         foreach ($map->getFuelTankMapDataList() as $fuelTankMapData) {
             $fuelTanks[] = new FuelTank($this->gameId, $fuelTankMapData->getCapacity(), $fuelTankMapData->getVector());
@@ -233,5 +236,12 @@ class Game
      */
     public function isCanRespawn(): bool {
         return $this->canRespawn;
+    }
+
+    /**
+     * @return GameType
+     */
+    public function getGameType(): GameType {
+        return $this->gameType;
     }
 }

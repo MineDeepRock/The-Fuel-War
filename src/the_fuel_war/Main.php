@@ -40,10 +40,6 @@ use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\item\Item;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\DoubleTag;
-use pocketmine\nbt\tag\FloatTag;
-use pocketmine\nbt\tag\ListTag;
 use pocketmine\network\mcpe\protocol\GameRulesChangedPacket;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
@@ -100,28 +96,8 @@ class Main extends PluginBase implements Listener
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
         if ($sender instanceof Player) {
-            if ($label === "create") {
-                $sender->sendForm(new CreateGameForm($this->getScheduler()));
-                return true;
-            }
-            if ($label === "setting") {
-                $playerData = PlayerDataDAO::findByName($sender->getName());
-                $game = GameStorage::findById($playerData->getBelongGameId());
-
-                if ($game === null) {
-                    $sender->sendMessage("ゲームに参加していないか、ゲームのオーナではありません");
-                } else {
-                    $sender->sendForm(new GameSettingForm($this->getScheduler()));
-                }
-
-                return true;
-            }
             if ($label === "map") {
                 $sender->sendForm(new MainMapForm());
-                return true;
-            }
-            if ($label === "gamelist") {
-                $sender->sendForm(new GameListForm($sender, $this->getScheduler()));
                 return true;
             }
             if ($label === "room") {
@@ -153,7 +129,7 @@ class Main extends PluginBase implements Listener
         if ($attacker->getInventory()->getItemInHand()->getId() === RemoveNPCItem::ITEM_ID) $gameListBulletinBoard->kill();
         $event->setCancelled();
 
-        $attacker->sendForm(new GameListForm($attacker, $this->getScheduler()));
+        $attacker->sendForm(new GameListForm($attacker, $gameListBulletinBoard->getGameType(), $this->getScheduler()));
     }
 
     public function onTapGameCreationComputer(EntityDamageByEntityEvent $event) {

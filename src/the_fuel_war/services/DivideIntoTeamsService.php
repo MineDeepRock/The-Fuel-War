@@ -9,6 +9,7 @@ use the_fuel_war\storages\PlayerStatusStorage;
 use the_fuel_war\types\GameId;
 use the_fuel_war\storages\GameStorage;
 use pocketmine\scheduler\TaskScheduler;
+use the_fuel_war\types\GameType;
 
 class DivideIntoTeamsService
 {
@@ -19,9 +20,30 @@ class DivideIntoTeamsService
         $fuelTanks = array_values($game->getFuelTanks());
         $playerNames = array_values($game->getPlayerNameList());
 
-        if (count($playerNames) > count($fuelTanks)) {
-            if (!is_int(count($playerNames) / count($fuelTanks))) return false;
-            $teamPlayersCount = count($playerNames) / count($fuelTanks);
+        //ソロの場合
+        if ($game->getGameType()->equals(GameType::Solo())) {
+            if (count($playerNames) > count($fuelTanks)) return false;
+            foreach ($playerNames as $key => $playerName) {
+                $playerStatus = PlayerStatusStorage::findByName($playerName);
+                if ($playerStatus === null) ;//TODO:エラー
+
+                $tankId = $fuelTanks[$key]->getTankId();
+                $newPlayerStatus = new PlayerStatus($playerStatus->getName(), $playerStatus->getBelongGameId(), $tankId, $playerStatus->getState(), $scheduler);
+                PlayerStatusStorage::update($newPlayerStatus);
+            }
+            //TODO:使用していないタンクを削除する
+
+        } else {
+            //指定なしの場合
+            if ($game->getGameType()->equals(GameType::Unspecified())) {
+                if (!is_int(count($playerNames) / count($fuelTanks))) return false;
+                $teamPlayersCount = count($playerNames) / count($fuelTanks);
+
+            //ソロ以上で指定がある場合
+            } else {
+                $teamPlayersCount = intval(strval($game->getGameType()));
+                if (!is_int(count($playerNames) / $teamPlayersCount)) return false;
+            }
 
             foreach ($fuelTanks as $fuelTank) {
                 $playersIndexList = array_rand($playerNames, $teamPlayersCount);
@@ -34,17 +56,15 @@ class DivideIntoTeamsService
 
                     $newPlayerStatus = new PlayerStatus($playerStatus->getName(), $playerStatus->getBelongGameId(), $fuelTank->getTankId(), $playerStatus->getState(), $scheduler);
                     PlayerStatusStorage::update($newPlayerStatus);
+                    //TODO:使用していないタンクを削除する
                 }
             }
-        } else {
-            foreach ($playerNames as $key => $playerName) {
-                $playerStatus = PlayerStatusStorage::findByName($playerName);
-                if ($playerStatus === null) ;//TODO:エラー
+        }
 
-                $tankId = $fuelTanks[$key]->getTankId();
-                $newPlayerStatus = new PlayerStatus($playerStatus->getName(), $playerStatus->getBelongGameId(), $tankId, $playerStatus->getState(), $scheduler);
-                PlayerStatusStorage::update($newPlayerStatus);
-            }
+        if (count($playerNames) > count($fuelTanks)) {
+
+        } else {
+
         }
 
         return true;

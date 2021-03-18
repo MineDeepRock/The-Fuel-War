@@ -11,10 +11,11 @@ use pocketmine\nbt\tag\FloatTag;
 use pocketmine\nbt\tag\ListTag;
 use the_fuel_war\pmmp\entities\GameCreationComputer;
 use the_fuel_war\pmmp\entities\GameListBulletinBoard;
+use the_fuel_war\types\GameType;
 
 class SpawnNPC
 {
-    static function execute(string $name, Location $location): void {
+    static function execute(string $name, Location $location, GameType $gameType = null): void {
         $nbt = new CompoundTag('', [
             'Pos' => new ListTag('Pos', [
                 new DoubleTag('', $location->getX()),
@@ -34,6 +35,7 @@ class SpawnNPC
 
         switch ($name) {
             case GameListBulletinBoard::NAME:
+                $nbt->setString("GameType", strval($gameType));
                 $entity = new GameListBulletinBoard($location->getLevel(), $nbt);
                 $entity->spawnToAll();
                 break;

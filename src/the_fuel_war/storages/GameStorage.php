@@ -5,6 +5,7 @@ namespace the_fuel_war\storages;
 
 use the_fuel_war\models\Game;
 use the_fuel_war\types\GameId;
+use the_fuel_war\types\GameType;
 
 class GameStorage
 {
@@ -58,9 +59,24 @@ class GameStorage
     }
 
     /**
-     * @return array|Game[]
+     * @return Game[]
      */
     static function getAll(): array {
         return self::$games;
+    }
+
+    /**
+     * @param GameType $gameType
+     * @return Game[]
+     */
+    static function findByGameType(GameType $gameType): array {
+        $result = [];
+        foreach (self::getAll() as $game) {
+            if ($game->getGameType()->equals($gameType)) {
+                $result[] = $game;
+            }
+        }
+
+        return $result;
     }
 }

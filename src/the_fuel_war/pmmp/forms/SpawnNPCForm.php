@@ -10,6 +10,7 @@ use pocketmine\Player;
 use the_fuel_war\pmmp\entities\GameCreationComputer;
 use the_fuel_war\pmmp\entities\GameListBulletinBoard;
 use the_fuel_war\pmmp\utilities\SpawnNPC;
+use the_fuel_war\types\GameType;
 
 class SpawnNPCForm extends SimpleForm
 {
@@ -17,11 +18,19 @@ class SpawnNPCForm extends SimpleForm
     public function __construct() {
         parent::__construct("NPC", "", [
             new SimpleFormButton(
-                GameListBulletinBoard::NAME,
+                "ソロのゲーム一覧",
                 null,
                 function (Player $player) {
                     if (!$player->isOp()) return;
-                    SpawnNPC::execute(GameListBulletinBoard::NAME, $player->getLocation());
+                    SpawnNPC::execute(GameListBulletinBoard::NAME, $player->getLocation(), GameType::Solo());
+                }
+            ),
+            new SimpleFormButton(
+                "２人チームのゲーム一覧",
+                null,
+                function (Player $player) {
+                    if (!$player->isOp()) return;
+                    SpawnNPC::execute(GameListBulletinBoard::NAME, $player->getLocation(), GameType::TwoPlayers());
                 }
             ),
             new SimpleFormButton(
