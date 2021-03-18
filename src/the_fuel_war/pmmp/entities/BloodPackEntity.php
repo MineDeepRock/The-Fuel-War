@@ -84,7 +84,7 @@ class BloodPackEntity extends EntityBase
         $gamePlayers = [];
         foreach ($game->getPlayerNameList() as $name) {
             $gamePlayer = Server::getInstance()->getPlayer($name);
-            if ($gamePlayer === null) return;
+            if ($gamePlayer === null) continue;
             $gamePlayers[] = $gamePlayer;
         }
 
