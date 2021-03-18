@@ -3,6 +3,7 @@
 namespace the_fuel_war\pmmp\listeners;
 
 
+use gun_system\pmmp\event\BulletHitEvent;
 use pocketmine\scheduler\ClosureTask;
 use the_fuel_war\dao\PlayerDataDAO;
 use the_fuel_war\data\PlayerData;
@@ -353,5 +354,20 @@ class GameListener implements Listener
 
             $gamePlayer->sendMessage("[{$sender->getName()}]" . $event->getMessage());
         }
+    }
+
+    public function onBulletHit(BulletHitEvent $event) {
+        $attacker = $event->getAttacker();
+        $injuredEntity = $event->getVictim();
+        $damage = $event->getDamage();
+
+        if (!($attacker instanceof Player)) return;
+        if (!($injuredEntity instanceof Player)) return;
+
+        $source = new EntityDamageByEntityEvent($attacker, $injuredEntity, EntityDamageEvent::CAUSE_CONTACT, $damage, [], 0);
+        $source->call();
+        $injuredEntity->setLastDamageCause($source);
+
+        $injuredEntity->setHealth($injuredEntity->getHealth() - $damage);
     }
 }
