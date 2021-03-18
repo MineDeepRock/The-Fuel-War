@@ -1,5 +1,5 @@
 # The Fuel War
-[銃鯖](https://minedeeprock.github.io/TheFuelWar)  
+[ルール](https://minedeeprock.github.io/TheFuelWar)  
 
 ## 依存
 [form_builder](https://github.com/MineDeepRock/form_builder)  
