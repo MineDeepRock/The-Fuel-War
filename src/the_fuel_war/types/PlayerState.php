@@ -24,10 +24,6 @@ class PlayerState
         return new self("Dead");
     }
 
-    static function Escaped(): PlayerState {
-        return new self("Escaped");
-    }
-
     public function equals(?self $playerStateOnGame): bool {
         if ($playerStateOnGame === null)
             return false;

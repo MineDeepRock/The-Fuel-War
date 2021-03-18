@@ -126,14 +126,6 @@ class PlayerStatusStorage
 
     /**
      * @param GameId $gameId
-     * @return PlayerStatus[]
-     */
-    static function getEscapedPlayers(GameId $gameId): array {
-        return self::getPlayersByState($gameId, PlayerState::Escaped());
-    }
-
-    /**
-     * @param GameId $gameId
      * @param FuelTankId $tankId
      * @return PlayerStatus[]
      */
